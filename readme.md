@@ -64,3 +64,17 @@ convert.Interface("hello").ToString()
 ```go
 convert.Interface(1.345).ToFloat()
 ```
+
+## Json
+- 转map
+```go
+Json(`{"name":"convert"}`).ToMap()
+```
+
+- 转struct
+```go
+p := new(struct{
+	Name string
+})
+Json(`{"name":"convert"}`).ToStruct(p)
+```
