@@ -4,13 +4,12 @@ import (
 	"bytes"
 	"encoding/binary"
 	"io"
-	"unsafe"
 )
 type Byte []byte
 
 
 func (b Byte) ToString() string {
-	return *(*string)(unsafe.Pointer(&b))
+	return byteToString(b)
 }
 
 func (b Byte) ToReader() io.Reader {

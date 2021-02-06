@@ -78,3 +78,16 @@ p := new(struct{
 })
 Json(`{"name":"convert"}`).ToStruct(p)
 ```
+
+## HttpResponse
+- 转string
+```go
+response, err := Response(resp)
+response.ToString()
+```
+
+- 转byte
+```go
+response, err := Response(resp)
+response.ToByte()
+```
