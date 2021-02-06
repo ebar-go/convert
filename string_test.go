@@ -2,22 +2,33 @@ package convert
 
 import (
 	"github.com/stretchr/testify/assert"
+	"strings"
 	"testing"
 )
 
-func TestStringValue(t *testing.T) {
+func TestString_ToInt(t *testing.T) {
 	s := String("1")
-	assert.Equal(t, "1", s.String())
-	assert.Equal(t, []byte("1"), s.ToByte())
+
 	assert.Equal(t, 1, s.ToInt())
-	assert.Equal(t, float64(1), s.ToFloat())
+
 }
 
-func BenchmarkStringValue_String(b *testing.B) {
+func TestString_ToByte(t *testing.T) {
 	s := String("1")
-	for i := 0; i < b.N; i++ {
-		_ = s.String()
-	}
+	assert.Equal(t, []byte("1"), s.ToByte())
+}
+
+
+func TestString_ToFloat(t *testing.T) {
+	s := String("1.2")
+	assert.Equal(t, 1.2, s.ToFloat())
+}
+
+
+func TestString_ToReader(t *testing.T) {
+	s := String("hello")
+	assert.Equal(t, strings.NewReader("hello"), s.ToReader())
+
 }
 
 

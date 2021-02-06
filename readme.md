@@ -47,7 +47,7 @@ convert.IntArray([]int{1,2,3}).ToString()
 
 - 字符串转整形数组
 ```go
-convert.IntArray([]int{"1","2","3"}).ToInt()
+convert.StringArray([]string{"1","2","3"}).ToInt()
 ```
 
 ## 接口
