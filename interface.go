@@ -6,16 +6,18 @@ import (
 	"strconv"
 )
 
-type Interface struct {
+// 接口类型的变量
+type InterfaceValue struct {
 	val interface{}
 }
 
-func NewInterface(val interface{}) Interface {
-	return Interface{val: val}
+// 接口类型
+func Interface(val interface{}) InterfaceValue {
+	return InterfaceValue{val: val}
 }
 
 // 转整形
-func (inter Interface) Int() int {
+func (inter InterfaceValue) ToInt() int {
 	var result int
 	if inter.val == nil {
 		return 0
@@ -39,7 +41,7 @@ func (inter Interface) Int() int {
 }
 
 // 转字符串
-func (inter Interface) String() string {
+func (inter InterfaceValue) ToString() string {
 	var result string
 	if inter.val == nil {
 		return ""
@@ -62,7 +64,7 @@ func (inter Interface) String() string {
 }
 
 // 转浮点数
-func (inter Interface) Float64() float64 {
+func (inter InterfaceValue) ToFloat() float64 {
 	var result float64
 	v := reflect.ValueOf(inter.val)
 	switch v.Kind() {
